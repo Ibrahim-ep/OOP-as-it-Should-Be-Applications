@@ -76,8 +76,52 @@ void UpdateClient()
     }
 }
 
+void AddClient()
+{
+    string AccountNumber;
+
+    cout << "Pleas enter client's account number : ";
+    AccountNumber = clsInputValidate::ReadString();
+
+    while (clsBankClient::IsClientExist(AccountNumber))
+    {
+        cout << "account number already exist, Plaes enter another account number : ";
+        AccountNumber = clsInputValidate::ReadString();
+    }
+
+    clsBankClient NewClient = clsBankClient::GetAddNewClient(AccountNumber);
+    
+    ReadClientInfo(NewClient);
+
+    clsBankClient::enSaveResults SaveResult;
+
+    SaveResult = NewClient.Save();
+
+    switch (SaveResult)
+    {
+    case clsBankClient::enSaveResults::svSucceeded:
+    {
+        cout << "\nSave succeeded\n";
+
+        NewClient.Print();
+
+        break;
+    }
+    case clsBankClient::enSaveResults::svFailedAccountNumberExist:
+    {
+        cout << "\nSave Failed, Client already exist\n";
+        break;
+    }
+    case clsBankClient::enSaveResults::svFaildEmptyObject:
+    {
+        cout << "\nSave Failed, Object was empty\n";
+        break;
+    }
+    }
+}
+
 int main()
 {
-    UpdateClient();
+    AddClient();
     return 0;
 }
