@@ -31,7 +31,7 @@ public:
     }
 
     //Property Get
-    string GetFirstName()
+    string FirstName()
     {
         return _FirstName;
     }
@@ -42,7 +42,7 @@ public:
     }
 
     //Property Get
-    string GetLastName()
+    string LastName()
     {
         return _LastName;
     };
@@ -54,7 +54,7 @@ public:
     }
 
     //Property Get
-    string GetEmail()
+    string Email()
     {
         return _Email;
     }
@@ -66,7 +66,7 @@ public:
     }
 
     //Property Get
-    string GetPhone()
+    string Phone()
     {
         return _Phone;
     }
