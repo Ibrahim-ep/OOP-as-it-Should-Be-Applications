@@ -61,11 +61,18 @@ public:
 
        if (AddAmount == 'Y' || AddAmount == 'y')
        {
-            Client1.Withdraw(Amount);
+            if (Client1.Withdraw(Amount))
+            {
+                cout << "Transation done Successfully :-)\n";
 
-            cout << "Transation done Successfully :-)\n";
-
-            cout << "New Balance is : " << Client1.AccountBalance() << endl;
+                cout << "New Balance is : " << Client1.AccountBalance() << endl;
+            }
+            else
+            {
+                cout << "Can not Withdraw, Insufficient Balance\n";
+                cout << "Withdraw Amount : " << Amount << endl;
+                cout << "Your balance    : " << Client1.AccountBalance() << endl;
+            }
        }
        else
        {
