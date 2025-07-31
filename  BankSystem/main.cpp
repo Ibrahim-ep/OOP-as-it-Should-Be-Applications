@@ -3,6 +3,7 @@
 #include "clsInputValidate.h"
 #include <iomanip>
 #include "clsUtil.h"
+#include "clsMainScreen.h"
 
 using namespace std;
 
@@ -246,9 +247,9 @@ void ShowBalancesList()
 }
 
 int main()
-{
+{   
 
-    ShowBalancesList();
+    clsMainScreen::ShowMainMenue();
 
     return 0;
 }
