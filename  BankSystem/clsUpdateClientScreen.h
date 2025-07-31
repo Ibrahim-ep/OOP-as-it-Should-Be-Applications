@@ -59,11 +59,10 @@ private:
 
         cout << "\nEnter Account Balance : ";
         Input = clsInputValidate::ReadStringAndUpperFirstLetter();
-        dInput = clsInputValidate::ReadDblNumber();
 
         if (Input != "Skip")
         {
-            Client.SetAccountBalance(dInput);
+            Client.SetAccountBalance(stod(Input));
         }
     }
 
