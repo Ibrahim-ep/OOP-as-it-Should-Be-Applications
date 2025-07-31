@@ -5,6 +5,7 @@
 #include "clsScreen.h"
 #include <iomanip>
 #include "clsClientsListScreen.h"
+#include "clsAddNewClientScreen.h"
 
 using namespace std;
 
@@ -37,8 +38,7 @@ private:
 
        static void _ShowAddNewClientsScreen()
        {
-           cout << "\nAdd New Client Screen Will be here...\n";
-         
+            clsAddNewClientScreen::AddClient();     
        }
 
        static void _ShowDeleteClientScreen()
