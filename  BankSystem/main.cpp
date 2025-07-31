@@ -79,44 +79,6 @@ void UpdateClient()
     }
 }
 
-void DeleteClient()
-{
-    string AccountNumber;
-
-    cout << "Pleas enter client's account number : ";
-    AccountNumber = clsInputValidate::ReadString();
-
-    while (!clsBankClient::IsClientExist(AccountNumber))
-    {
-        cout << "account number not found, Plaes enter another account number : ";
-        AccountNumber = clsInputValidate::ReadString();
-    }
-
-    clsBankClient Client1 = clsBankClient::Find(AccountNumber);
-    Client1.Print();
-
-    cout << "\nAre you sure you want to delete this client y/n? ";
-    
-    char Answer = 'n';
-    cin >> Answer;
-
-    if (Answer == 'y' || Answer == 'Y')
-    {
-       
-
-        if (Client1.Delete())
-        {
-            cout << "\nClient Deleted Successfully :-)\n";
-
-            Client1.Print();
-        }
-        else
-        {
-            cout << "\nError Client Was not Deleted\n";
-        }
-    }
-}
-
 void PrintClientRecordBalanceLine(clsBankClient Client)
 {
     cout << "| " << setw(15) << left << Client.AccountNumber();

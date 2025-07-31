@@ -6,6 +6,7 @@
 #include <iomanip>
 #include "clsClientsListScreen.h"
 #include "clsAddNewClientScreen.h"
+#include "clsDeleteClientScreen.h"
 
 using namespace std;
 
@@ -43,7 +44,7 @@ private:
 
        static void _ShowDeleteClientScreen()
        {
-           cout << "\nDelete Client Screen Will be here...\n";
+           clsDeleteClientScreen::DeleteClient();
 
        }
 
