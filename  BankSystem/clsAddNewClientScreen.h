@@ -37,6 +37,7 @@ private:
 
         cout << "\nEnter Account Balance : ";
         AccountBalance = clsInputValidate::ReadDblNumber();
+        Client.SetAccountBalance(AccountBalance);
     }
 
     static void _PrintClient(clsBankClient Client)

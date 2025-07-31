@@ -160,4 +160,31 @@ public:
 		getline(cin >> ws, S1);
 		return S1;
 	}
+
+	static string UpperFirstLetterOfEachWord(string S1) 
+	{ 
+		bool isFirstLetter = true; 
+
+		for (short i = 0; i < S1.length(); i++)     
+		{ 
+			if (S1[i] != ' ' && isFirstLetter)         
+			{ 
+				S1[i] = toupper(S1[i]);
+			}
+
+			isFirstLetter = (S1[i] == ' ' ? true : false);     
+		} 
+		return S1;
+	}	 
+
+	static string ReadStringAndUpperFirstLetter()
+	{
+		string  S1="";
+
+		getline(cin >> ws, S1);
+
+		S1 = UpperFirstLetterOfEachWord(S1);
+
+		return S1;
+	}
 };

@@ -4,6 +4,7 @@
 #include "clsScreen.h" 
 #include "clsInputValidate.h"
 #include "clsBankClient.h"
+#include <string>
 
 class clsUpdateCleintScreen : protected clsScreen
 {
@@ -11,31 +12,59 @@ private:
 
     static void _ReadClientInfo(clsBankClient &Client)
     {
-        string FirstName, LastName, Email, Pincode, Phone;
-        float AccountBalance;
+       string Input;
+       double dInput;
 
         cout << "\nEnter First Name : ";
-        FirstName = clsInputValidate::ReadString();
-        Client.SetFirstName(FirstName);
+        Input = clsInputValidate::ReadStringAndUpperFirstLetter();
+
+        if (Input != "Skip")
+        {
+            Client.SetFirstName(Input);
+        }
 
         cout << "\nEnter Last Name : ";
-        LastName = clsInputValidate::ReadString();
-        Client.SetLastName(LastName);
+        Input = clsInputValidate::ReadStringAndUpperFirstLetter();
+
+        if (Input != "Skip")
+        {
+            Client.SetLastName(Input);
+        }
 
         cout << "\nEnter E-mail : ";
-        Email = clsInputValidate::ReadString();
-        Client.SetEmail(Email);
+        Input = clsInputValidate::ReadStringAndUpperFirstLetter();
+
+        if (Input != "Skip")
+        {
+            Client.SetEmail(Input);
+        }
 
         cout << "\nEnter Phone Number : ";
-        Phone = clsInputValidate::ReadString();
-        Client.SetPhone(Phone);
+        Input = clsInputValidate::ReadStringAndUpperFirstLetter();
+
+        if (Input != "Skip")
+        {
+            Client.SetPhone(Input);
+        }
 
         cout << "\nEnter PIN Code : ";
-        Pincode = clsInputValidate::ReadString();
-        Client.setPinCode(Pincode);
+        Input = clsInputValidate::ReadStringAndUpperFirstLetter();
+
+        if (Input != "Skip")
+        {
+            Client.setPinCode(Input);
+        }
+       
+        
 
         cout << "\nEnter Account Balance : ";
-        AccountBalance = clsInputValidate::ReadDblNumber();
+        Input = clsInputValidate::ReadStringAndUpperFirstLetter();
+        dInput = clsInputValidate::ReadDblNumber();
+
+        if (Input != "Skip")
+        {
+            Client.SetAccountBalance(dInput);
+        }
     }
 
     static void _PrintClient(clsBankClient Client)
@@ -76,6 +105,8 @@ public:
         _PrintClient(Client1);
 
         cout << "\n\nUpdate Client Info :\n";
+        cout << "-------------------------\n";
+        cout << "If you don't want to change anythin enter Skip!\n";
         cout << "-------------------------\n";
 
         _ReadClientInfo(Client1);
