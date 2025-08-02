@@ -109,7 +109,12 @@ public:
 
     static void ShowManageUsersMenue()
     {
-         _DrawScreenHeader("\t Manage Users Screen");
+        if (!CheckAccessRights(clsUser::enPermissions::pManageUsers))
+        {
+            return;
+        }
+
+        _DrawScreenHeader("\t Manage Users Screen");
 
         cout << setw(37) << left << "" << "===========================================\n";
         cout << setw(37) << left << "" << "\t\t  Manage Users Menue\n";
