@@ -13,37 +13,45 @@ private:
 
     static void _ReadUserInfo(clsUser& User)
     {
+        string Input = " ";
+    
         cout << "\nEnter FirstName: ";
-        User.FirstName = clsInputValidate::ReadString();
+        Input = clsInputValidate::ReadString();
+        User.SetFirstName(Input);
 
         cout << "\nEnter LastName: ";
-        User.LastName = clsInputValidate::ReadString();
+        Input = clsInputValidate::ReadString();
+        User.SetLastName(Input);
 
         cout << "\nEnter Email: ";
-        User.Email = clsInputValidate::ReadString();
+        Input = clsInputValidate::ReadString();
+        User.SetEmail(Input);
 
         cout << "\nEnter Phone: ";
-        User.Phone = clsInputValidate::ReadString();
+        Input = clsInputValidate::ReadString();
+        User.SetPhone(Input);
 
         cout << "\nEnter Password: ";
-        User.Password = clsInputValidate::ReadString();
+        Input = clsInputValidate::ReadString();
+        User.SetPassword(Input);
 
         cout << "\nEnter Permission: ";
-        User.Permissions = _ReadPermissionsToSet();
+        Input = _ReadPermissionsToSet();
+        User.SetPermissions(stoi(Input));
     }
 
     static void _PrintUser(clsUser User)
     {
         cout << "\nUser Card:";
         cout << "\n___________________";
-        cout << "\nFirstName   : " << User.FirstName;
-        cout << "\nLastName    : " << User.LastName;
+        cout << "\nFirstName   : " << User.FirstName();
+        cout << "\nLastName    : " << User.LastName();
         cout << "\nFull Name   : " << User.FullName();
-        cout << "\nEmail       : " << User.Email;
-        cout << "\nPhone       : " << User.Phone;
-        cout << "\nUser Name   : " << User.UserName;
-        cout << "\nPassword    : " << User.Password;
-        cout << "\nPermissions : " << User.Permissions;
+        cout << "\nEmail       : " << User.Email();
+        cout << "\nPhone       : " << User.Phone();
+        cout << "\nUser Name   : " << User.UserName();
+        cout << "\nPassword    : " << User.Password();
+        cout << "\nPermissions : " << User.Permissions();
         cout << "\n___________________\n";
 
     }
