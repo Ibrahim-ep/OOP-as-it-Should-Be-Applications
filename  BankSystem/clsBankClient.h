@@ -3,6 +3,7 @@
 #include <string>
 #include "clsPerson.h"
 #include "clsString.h"
+#include "clsDate.h"
 #include <vector>
 #include <fstream>
 
